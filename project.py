@@ -19,6 +19,11 @@ def mainMenu():
     return render_template('store.html', stores=stores)
 
 
+@app.route('/store/new', methods=['GET', 'POST'])
+def newStore():
+    return render_template('newStore.html')
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run(host='0.0.0.0', port=5151)

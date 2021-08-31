@@ -1,18 +1,23 @@
-<html>
+<!DOCTYPE html>
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
+    <title>플레이스</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
-    <div class='container'>
-        <h1>Stores</h1>
-        <a href="">새로운 가게 생성하기</a>
+<div class='container'>
+    <h1>플레이스</h1>
+    <a href="{{url_for('newStore')}}">새로운 가게 등록하기</a>
 
-        {% for store in stores %}
+    <h3>가게 리스트</h3>
+    {% for store in stores %}
 
-        <p>{{store.name}}</p>
+    <a href=""><p>{{store.name}}</p></a>
 
-        {% endfor %}
-    </div>
+
+    {% endfor %}
+</div>
 
 </body>
 </html>
