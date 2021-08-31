@@ -13,9 +13,10 @@ session = DBSession()
 
 
 @app.route('/')
+@app.route('/store/')
 def mainMenu():
     stores = session.query(Store).all()
-    return render_template('store.html', sotres=stores)
+    return render_template('store.html', stores=stores)
 
 
 if __name__ == '__main__':

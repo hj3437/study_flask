@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
+    <div class='container'>
+        <h1>Stores</h1>
+        <a href="">새로운 가게 생성하기</a>
+
+        {% for store in stores %}
+
+        <p>{{store.name}}</p>
+
+        {% endfor %}
+    </div>
 
 </body>
 </html>
