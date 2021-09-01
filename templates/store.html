@@ -13,7 +13,7 @@
     <h3>가게 리스트</h3>
     {% for store in stores %}
 
-    <a href=""><p>{{store.name}}</p></a>
+    <a href="{{url_for('showMenu', store_id = store.id)}}"><p>{{store.name}}</p></a>
 
 
     {% endfor %}

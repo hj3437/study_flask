@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{store.name}}'s 플레이스</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+<h1>{{ store.name }}</h1>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class=flashes>
+    {% for message in messages %}
+    <li>{{ message }}</li>
+
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+
+<a href="">새 메뉴 추가하기</a>
+
+<h2>정식메뉴</h2>
+{% for menu in menus %}
+{% if menu.package_item == '정식' %}
+<p><strong>{{menu.name}}</strong></p>
+<p>{{menu.description}}</p>
+<p>₩ {{menu.price}}</p>
+<br>
+{% endif %}
+{% endfor %}
+
+
+<h2>디저트</h2>
+{% for menu in menus %}
+{% if menu.package_item == '디저트' %}
+<p>{{menu.name}}</p>
+<p>{{menu.description}}</p>
+<p>₩ {{menu.price}}</p>
+<br>
+{% endif %}
+{% endfor %}
+
+<script>
+    const h2Tag = document.querySelectorAll('h2');
+
+    h2Tag.forEach((pTag)=>{
+         if(pTag.nextElementSibling.innerTexT === undefined) {
+            console.log('menu undefined');
+          }
+    });
+</script>
+</body>
+</html>
