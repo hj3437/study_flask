@@ -17,7 +17,7 @@
             <ul>
                 {% for store in stores %}
                 <li>
-                <a class="place_title" href="{{url_for('showMenu', store_id = store.id)}}">{{store.name}}</a>                                    
+                <a class="place_title" href="{{url_for('showMenu', store_id = store.id)}}"><h2>{{store.name}}</h2></a>                                    
                 <a class="btn_setting place_edit" href="{{url_for('editStore',store_id = store.id)}}">변경하기</a>
                 <a class="btn_setting place_delete" href="{{url_for('deleteStore',store_id = store.id)}}">삭제하기</a>
                 </li>

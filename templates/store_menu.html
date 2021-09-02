@@ -11,17 +11,6 @@
     <div class='container'>
         <h1>{{ store.name }}</h1>
 
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <ul class=flashes>
-            {% for message in messages %}
-            <li>{{ message }}</li>
-
-            {% endfor %}
-        </ul>
-        {% endif %}
-        {% endwith %}
-
         <div class="place_wrap">
             <a href="{{url_for('newItem', store_id=store.id)}}">새 메뉴 추가하기</a>
         </div>
@@ -30,32 +19,47 @@
             <h3>메뉴</h3>
             <div class="menu_meals">
                 <h2>정식메뉴</h2>
-                {% for menu in menus %}
-                {% if menu.package_item == '정식' %}
-                <p><strong>{{menu.name}}</strong></p>
-                <p>{{menu.description}}</p>
-                <p>₩ {{menu.price}}</p>
-                <a class="btn_setting" href="{{url_for('editItem', store_id=store.id, menu_id=menu.id)}}">변경하기</a>
-                <a class="btn_setting" href="{{url_for('deleteItem', store_id=store.id, menu_id=menu.id)}}">삭제하기</a>
-                <br>
-                {% endif %}
-                {% endfor %}
+                <ul>
+                    {% for menu in menus %}
+                    {% if menu.package_item == '정식' %}
+                    <li>
+                        <p class="menu_title"><strong>{{menu.name}}</strong></p>
+                        <p>{{menu.description}}</p>
+                        <p>₩ {{menu.price}}</p>
+                        <a class="btn_setting"
+                            href="{{url_for('editItem', store_id=store.id, menu_id=menu.id)}}">변경하기</a>
+                        <a class="btn_setting"
+                            href="{{url_for('deleteItem', store_id=store.id, menu_id=menu.id)}}">삭제하기</a>
+                        <br>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
             </div>
 
             <div class="menu_dessert">
                 <h2>디저트</h2>
-                {% for menu in menus %}
-                {% if menu.package_item == '디저트' %}
-                <p><strong>{{menu.name}}</strong></p>
-                <p>{{menu.description}}</p>
-                <p>₩ {{menu.price}}</p>
-                <a class="btn_setting" href="{{url_for('editItem', store_id=store.id, menu_id=menu.id)}}">변경하기</a>
-                <a class="btn_setting" href="{{url_for('deleteItem', store_id=store.id, menu_id=menu.id)}}">삭제하기</a>
-                {% endif %}
-                {% endfor %}
+                <ul>
+                    {% for menu in menus %}
+                    {% if menu.package_item == '디저트' %}
+                    <li>
+                        <p class="menu_title"><strong>{{menu.name}}</strong></p>
+                        <p>{{menu.description}}</p>
+                        <p>₩ {{menu.price}}</p>
+                        <a class="btn_setting"
+                            href="{{url_for('editItem', store_id=store.id, menu_id=menu.id)}}">변경하기</a>
+                        <a class="btn_setting"
+                            href="{{url_for('deleteItem', store_id=store.id, menu_id=menu.id)}}">삭제하기</a>
+                        {% endif %}
+                        {% endfor %}
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+    <footer>
+        <a href="{{url_for('showStore')}}">홈으로 이동</a>
+    </footer>
 </body>
 
 </html>

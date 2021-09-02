@@ -1,13 +1,14 @@
+{% set place_title = "메뉴 변경" %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>{{item.name}} 메뉴 변경</title>
+    <title>{{item.name}} {{place_title}}</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
 <div class='container'>
-    <h1>메뉴 변경하기</h1>
+    <h1>"{{item.name}}" {{place_title}}</h1>
     <form action="#" method = 'post'>
         <p>이름</p>
 		<input type ='text' size='30' name='name' placeholder = '{{item.name }}'>
@@ -18,22 +19,23 @@
         <p>가격</p>
 		<input type ='text' size='30' name='price' placeholder = '{{item.price }}'>
 
-        <p>타입</p>
-        {% if item.package_item == '정식' %}
-		<dd><input type ='radio' name='package_item' value='정식'checked >정식</dd>
-	    {%else%}
-        <dd><input type ='radio' name='package_item' value='정식' >정식</dd>
-        {% endif %}
+        <div class="menu_type">
+            <p>타입</p>
+            {% if item.package_item == '정식' %}
+            <dd><input type ='radio' name='package_item' value='정식'checked >정식</dd>
+            {%else%}
+            <dd><input type ='radio' name='package_item' value='정식' >정식</dd>
+            {% endif %}
 
-        {% if item.package_item == '디저트' %}
-		<dd><input type ='radio' name='package_item' value='디저트'checked >디저트</dd>
-	    {%else%}
-        <dd><input type ='radio' name='package_item' value='디저트' >디저트</dd>
-        {% endif %}
+            {% if item.package_item == '디저트' %}
+            <dd><input type ='radio' name='package_item' value='디저트'checked >디저트</dd>
+            {%else%}
+            <dd><input type ='radio' name='package_item' value='디저트' >디저트</dd>
+            {% endif %}
+        </div>
 
-        <br><br>
         <input type='submit' value='변경하기'>
-        <a href = '#'>취소하기</a>
+        <input class="btn_cancel" type='button' onclick="document.location.href='{{url_for('showMenu', store_id=item.store_id)}}';" value='취소하기'>
     </form>
 </div>
 

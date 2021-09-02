@@ -25,15 +25,20 @@ h1, h2, h3 {
     padding: 0;
 }
 
+dd {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     width: 40%;
     margin: var(--size-normal) auto;
 }
 
 .place_wrap {
+    display: flex;
     overflow: hidden;
-    width: 100%;
-    max-width: 200px;
+    width: 50%;
     border: none;
     border-radius: 4px;
     margin: var(--size-normal) 0;
@@ -46,6 +51,8 @@ body {
     min-height: var(--size-normal);
     line-height: var(--size-normal);
     padding: var(--size-normal);
+    margin-right: calc(var(--size-normal) / 2);
+    border-radius: 4px;
     background-color: var( --btn-create);
     color: white;
 }
@@ -125,6 +132,13 @@ input[type=button]{
     border: none;
 }
 
+input[type=radio]{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    border: none;
+}
+
 .place_list_wrap > div {
     border: 1px solid black;
     border-bottom: none;
@@ -138,4 +152,59 @@ input[type=button]{
 
 .place_list_wrap > div:last-child {
     border-bottom: 1px solid black;
+}
+
+.place_list_wrap .menu_meals ul li, 
+.place_list_wrap .menu_dessert ul li {
+    border: none;
+    border-bottom: 1px solid grey;
+    padding-bottom: 16px;
+}
+
+.place_list_wrap .menu_meals ul li:last-child,
+.place_list_wrap .menu_dessert ul li:last-child {
+    border-bottom: none;
+}
+
+.place_list_wrap .menu_meals h2 {
+    color: cornflowerblue;
+}
+
+.place_list_wrap .menu_meals .menu_title {
+    color: rgb(23, 6, 65);
+}
+
+.place_list_wrap .menu_dessert h2 {
+    color: chocolate;
+}
+
+.place_list_wrap .menu_dessert .menu_title {
+    color:black;
+}
+
+.container .menu_type p {
+    display: block;
+    margin: 0;
+    margin-top: var(--size-normal);
+    margin-bottom: calc(var(--size-normal) / 2);
+}
+
+.container .menu_type dd {
+    margin-bottom: calc(var(--size-normal) / 2);
+}
+
+footer {
+    border-top: 2px solid black;
+    margin-top: var(--size-normal);
+    padding-top: var(--size-normal);
+}
+
+footer a {
+    display: inline-block;
+    padding: 4px 4px;
+    border: 1px solid black;
+}
+
+footer a::before {
+    content: '<';
 }
