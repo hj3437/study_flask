@@ -11,6 +11,18 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
+@app.route('/store/JSON')
+def storesJSON():
+    stores = session.query(Store).all()
+    return jsonify(Store=[i.serialize for i in stores])
+
+@app.route('/store/<int:store_id>/menu/JSON')
+def storeMenuJSON(store_id):
+    store = session.query(Store).filter_by(id=store_id).one()
+    items = session.query(StoreItem).filter_by(
+        store_id=store_id).all()
+    return jsonify(StoreItem=[i.serialize for i in items])
+
 
 @app.route('/')
 @app.route('/store/')

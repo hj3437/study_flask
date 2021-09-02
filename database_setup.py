@@ -31,6 +31,16 @@ class StoreItem(Base):
     store_id = Column(Integer, ForeignKey('store.id'))
     store = relationship(Store)
 
+    @property
+    def serialize(self):
+        return {
+            'name': self.name,
+            'description': self.description,
+            'id': self.id,
+            'price': self.price,
+            'course': self.package_item,
+        }
+
 
 engine = create_engine('sqlite:///store.db')
 Base.metadata.create_all(engine)
