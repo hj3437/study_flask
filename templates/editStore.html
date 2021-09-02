@@ -1,10 +1,27 @@
+{% set place_title = "가게명 변경" %}
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{place_title}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
+<div class='container'>
+    <h1>{{place_title}}</h1>
+    <form action="#" method='post'>
+        <h3>가게 이름</h3>
+        <input type='text' size='30' name='name' placeholder='{{store.name }}'>
+        <input type='submit' value='변경하기'>
+        <input class="btn_cancel" type='button' onclick="document.location.href='{{url_for('showStore')}}';"  value='취소하기'>
+    </form>
+</div>
+<script>
+    const cancelBtn = document.querySelector('.btn_cancel');
+    cancelBtn.addEventListener('click', ()=>{
+        console.log('click!');
 
+    })
+</script>
 </body>
 </html>

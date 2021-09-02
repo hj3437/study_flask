@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴 추가</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+<div class='container'>
+    <h1>새로운 메뉴 추가하기</h1>
+    <form action="#" method = 'post'>
+        <p>이름</p>
+		<input type ='text' size='30' name='name' placeholder = ''>
+
+        <p>설명</p>
+		<input type ='text' size='30' name='description' placeholder = ''>
+
+        <p>가격</p>
+		<input type ='text' size='30' name='price' placeholder = ''>
+
+        <p>타입</p>
+		<dd><input type ='radio' name='package_item' value='정식'checked >정식</dd>
+        <dd><input type ='radio' name='package_item' value='디저트' >디저트</dd>
+
+        <br><br>
+        <input type='submit' value='생성하기'>
+        <a href = '#'>취소하기</a>
+    </form>
+</div>
+
+</body>
+</html>

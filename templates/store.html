@@ -1,23 +1,29 @@
+{% set place_title = "푸드 플레이스" %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>플레이스</title>
+    <title>{{place_title}}</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 <body>
-<div class='container'>
-    <h1>플레이스</h1>
-    <a href="{{url_for('newStore')}}">새로운 가게 등록하기</a>
-
-    <h3>가게 리스트</h3>
-    {% for store in stores %}
-
-    <a href="{{url_for('showMenu', store_id = store.id)}}"><p>{{store.name}}</p></a>
-
-
-    {% endfor %}
-</div>
-
+    <div class='container'>
+        <h1>{{place_title}}</h1>
+        <div class="place_wrap">
+            <a href="{{url_for('newStore')}}">새로운 가게 등록하기</a>
+        </div>
+        <div class="place_list_wrap">
+            <h3>가게 목록</h3>
+            <ul>
+                {% for store in stores %}
+                <li>
+                <a class="place_title" href="{{url_for('showMenu', store_id = store.id)}}">{{store.name}}</a>                                    
+                <a class="btn_setting place_edit" href="{{url_for('editStore',store_id = store.id)}}">변경하기</a>
+                <a class="btn_setting place_delete" href="{{url_for('deleteStore',store_id = store.id)}}">삭제하기</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

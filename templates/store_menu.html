@@ -20,7 +20,7 @@
 {% endwith %}
 
 
-<a href="">새 메뉴 추가하기</a>
+<a href="{{url_for('newItem', store_id=store.id)}}">새 메뉴 추가하기</a>
 
 <h2>정식메뉴</h2>
 {% for menu in menus %}
@@ -28,6 +28,8 @@
 <p><strong>{{menu.name}}</strong></p>
 <p>{{menu.description}}</p>
 <p>₩ {{menu.price}}</p>
+<a href="{{url_for('editItem', store_id=store.id, menu_id=menu.id)}}">변경하기</a>
+<a href="{{url_for('deleteItem', store_id=store.id, menu_id=menu.id)}}">삭제하기</a>
 <br>
 {% endif %}
 {% endfor %}
@@ -39,18 +41,10 @@
 <p>{{menu.name}}</p>
 <p>{{menu.description}}</p>
 <p>₩ {{menu.price}}</p>
+<a href="{{url_for('editItem', store_id=store.id, menu_id=menu.id)}}">변경하기</a>
+<a href="">삭제하기</a>
 <br>
 {% endif %}
 {% endfor %}
-
-<script>
-    const h2Tag = document.querySelectorAll('h2');
-
-    h2Tag.forEach((pTag)=>{
-         if(pTag.nextElementSibling.innerTexT === undefined) {
-            console.log('menu undefined');
-          }
-    });
-</script>
 </body>
 </html>
