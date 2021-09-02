@@ -10,8 +10,8 @@
     <h3>"{{item.name}}" 메뉴를 삭제하시겠습니까?</h3>
     <form action="#" method = 'post'>
     <input type='submit', value = '삭제하기'>
+    <input class="btn_cancel" type='button' onclick="document.location.href='{{url_for('showMenu', store_id=item.store_id)}}';" value='취소하기'>
     </form>
-    <a href = '#'> 취소하기 </a>
 </div>
 
 </body>

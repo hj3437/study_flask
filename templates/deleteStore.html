@@ -1,14 +1,22 @@
+{% set place_title = "가게 삭제하기" %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{place_title}}</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
+
 <body>
-<h2>{{store.name}} 플레이스를 삭제하시겠습니까?</h2>
-<form action="#" method='post'>
-    <input type='submit' , value='삭제'>
-</form>
-<a href="{{url_for('showStore')}}"> 취소하기 </a>
+    <div class='container'>
+        <h1>"{{store.name}}"{{place_title}}</h1>
+        <form action="#" method='post'>
+            <input type='submit' , value='삭제'>
+            <input class="btn_cancel" type='button' onclick="document.location.href='{{url_for('showStore')}}';"
+                value='취소하기'>
+        </form>
+    </div>
 </body>
+
 </html>

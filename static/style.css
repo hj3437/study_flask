@@ -124,3 +124,18 @@ input[type=button]{
     display: inline-block;
     border: none;
 }
+
+.place_list_wrap > div {
+    border: 1px solid black;
+    border-bottom: none;
+    padding: var(--size-normal);
+}
+
+.place_list_wrap > div .btn_setting {
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.place_list_wrap > div:last-child {
+    border-bottom: 1px solid black;
+}
